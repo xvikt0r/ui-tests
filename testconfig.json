@@ -1,0 +1,30 @@
+{
+  "site": {
+    "baseUrl": "https://google.com"
+  },
+  "hubs": {
+    "local": {
+      "url": "http://localhost:4444/wd/hub"
+    },
+    "selenoid": {
+      "url": "http://localhost:4444/wd/hub"
+    },
+    "browserstack": {
+      "url": "https://{user}:{passwor}@hub-cloud.browserstack.com/wd/hub"
+    }
+  },
+  "bsdevices": {
+    "iPhone11": {
+      "browserName": "iPhone",
+      "device": "iPhone 11",
+      "realMobile": "true",
+      "os_version": "14.0"
+    },
+    "samsungGalaxyS9": {
+      "browserName": "Android",
+      "device": "Samsung Galaxy S9 Plus",
+      "realMobile": "true",
+      "os_version": "9.0"
+    }
+  }
+}
