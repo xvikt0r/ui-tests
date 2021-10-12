@@ -60,16 +60,8 @@ public class BaseTest {
     }
 
     @BeforeMethod(alwaysRun = true)
-    @Parameters({"hub", "browserName", "browserVersion", "browserSize", "device", "skin", "typePage"})
-    public void beforeMethod(ITestContext testContext,
-                             Method method,
-                             @Optional("local") String hub,
-                             @Optional("chrome") String browserName,
-                             @Optional("") String browserVersion,
-                             @Optional("1920x1080") String browserSize,
-                             @Optional String device,
-                             @Optional String skin,
-                             @Optional("desktop") String typePage) {
+    @Parameters({"device", "skin"})
+    public void beforeMethod(Method method, @Optional String skin, @Optional String device) {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         TestMethodContext.init(method);
         DesiredCapabilities capabilities = CapabilitiesFactory.getCapabilities();
