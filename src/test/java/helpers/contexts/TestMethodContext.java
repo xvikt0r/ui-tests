@@ -18,7 +18,6 @@ public class TestMethodContext {
     }
 
     public static TestMethodContext get() {
-        TestMethodContext c = context.get();
         return context.get();
     }
 
