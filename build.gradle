@@ -53,7 +53,7 @@ allure {
     }
 }
 
-def suiteProperty = project.hasProperty("suite") ? project.property("suite") : "base"
+def suiteProperty = System.getProperty("suite","base")
 def suite = "src/test/resources/suites/${suiteProperty}.xml"
 test {
     useTestNG {

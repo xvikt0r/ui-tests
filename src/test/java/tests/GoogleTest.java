@@ -27,7 +27,7 @@ public class GoogleTest extends BaseTest {
                 .open();
     }
 
-    @Test(groups = "smoke", description = "Поиск на главной страницы Google")
+    @Test(groups = "C1", description = "Поиск на главной страницы Google")
     public void googleSearch() {
         mainPage
                 .fillQueryField("Test text")

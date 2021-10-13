@@ -22,7 +22,7 @@ public class GoogleDoodlesTest extends BaseTest {
                 .open();
     }
 
-    @Test(groups = "smoke", description = "Дудл Google")
+    @Test(groups = "C2 ", description = "Дудл Google")
     public void googleDoodle() {
         doodlePage
                 .titleShouldBeVisible("Nigeria Independence Day 2021");

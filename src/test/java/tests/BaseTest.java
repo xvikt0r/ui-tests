@@ -29,7 +29,6 @@ import org.testng.annotations.Parameters;
 
 import java.lang.reflect.Method;
 
-
 public class BaseTest {
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
     private final TestConfiguration testConfiguration = TestConfiguration.getInstance();
