@@ -8,7 +8,7 @@ import helpers.contexts.TestClassContext;
 import helpers.contexts.TestMethodContext;
 import helpers.factories.WebDriverFactory;
 import helpers.factories.capability.CapabilitiesFactory;
-import helpers.factories.pages.PageFactory;
+import helpers.factories.objects.ObjectFactory;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -46,7 +46,7 @@ public class BaseTest {
     }
 
     @BeforeClass(alwaysRun = true)
-    @Parameters({"hub", "browserName", "browserVersion", "browserSize", "device", "skin", "typePage"})
+    @Parameters({"hub", "browserName", "browserVersion", "browserSize", "device", "skin", "type"})
     public void beforeClass(ITestContext testContext,
                             @Optional("local") String hub,
                             @Optional("chrome") String browserName,
@@ -54,9 +54,9 @@ public class BaseTest {
                             @Optional("1920x1080") String browserSize,
                             @Optional String device,
                             @Optional String skin,
-                            @Optional("desktop") String typePage) {
-        TestClassContext.init(testContext, hub, browserName, browserVersion, browserSize, device, skin, typePage);
-        PageFactory.initPages(this);
+                            @Optional("desktop") String type) {
+        TestClassContext.init(testContext, hub, browserName, browserVersion, browserSize, device, skin, type);
+        ObjectFactory.initObjects(this);
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -67,10 +67,10 @@ public class BaseTest {
         DesiredCapabilities capabilities = CapabilitiesFactory.getCapabilities();
         WebDriver driver = WebDriverFactory.createDriver(
                 capabilities,
-                testConfiguration.getHubUrl(TestMethodContext.getHub())
+                testConfiguration.getHubUrl(TestMethodContext.hub())
         );
         if (device == null && skin == null) {
-            WebDriverFactory.adjustBrowserSize(driver, TestMethodContext.getBrowserSize());
+            WebDriverFactory.adjustBrowserSize(driver, TestMethodContext.browserSize());
         }
         WebDriverRunner.setWebDriver(driver);
     }

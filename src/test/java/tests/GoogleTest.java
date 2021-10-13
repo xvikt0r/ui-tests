@@ -1,6 +1,6 @@
 package tests;
 
-import helpers.factories.pages.PageFactory;
+import helpers.factories.objects.ObjectFactory;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import objects.desktop.pages.MainPage;
@@ -18,7 +18,7 @@ public class GoogleTest extends BaseTest {
 
     @BeforeClass(alwaysRun = true, description = "Инициализация PageObjects")
     public void initPages() {
-        mainPage = PageFactory.initPage(MainPage.class);
+        mainPage = ObjectFactory.init(MainPage.class);
     }
 
     @BeforeMethod(alwaysRun = true, description = "Открыть страницу")

@@ -12,10 +12,10 @@ import java.util.logging.Level;
 public class ChromeCapabilitiesFactory implements ICapabilitiesFactory {
     @Override
     public DesiredCapabilities getCapabilities() {
-        String browserName = TestMethodContext.getBrowserName();
-        String browserVersion = TestMethodContext.getBrowserVersion();
-        String skin = TestMethodContext.getSkin();
-        String methodName = TestMethodContext.getMethodName();
+        String browserName = TestMethodContext.browserName();
+        String browserVersion = TestMethodContext.browserVersion();
+        String skin = TestMethodContext.skin();
+        String methodName = TestMethodContext.methodName();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browserName);
         capabilities.setVersion(browserVersion);

@@ -8,9 +8,9 @@ public class BrowserStackCapabilitiesFactory implements ICapabilitiesFactory {
 
     @Override
     public DesiredCapabilities getCapabilities() {
-        String nameDevice = TestMethodContext.getDevice();
+        String nameDevice = TestMethodContext.device();
         TestConfiguration.Device device = TestConfiguration.getInstance().getDevice(nameDevice);
-        String methodName = TestMethodContext.getMethodName();
+        String methodName = TestMethodContext.methodName();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("device", device.getDevice());
         capabilities.setCapability("realMobile", device.getRealMobile());

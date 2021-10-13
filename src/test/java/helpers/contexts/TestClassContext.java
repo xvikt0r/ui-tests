@@ -12,9 +12,9 @@ public final class TestClassContext {
     private final String browserSize;
     private final String device;
     private final String skin;
-    private final String typePage;
+    private final String type;
 
-    public TestClassContext(ITestContext testContext, String hub, String browserName, String browserVersion, String browserSize, String device, String skin, String typePage) {
+    public TestClassContext(ITestContext testContext, String hub, String browserName, String browserVersion, String browserSize, String device, String skin, String type) {
         this.testContext = testContext;
         this.hub = hub;
         this.browserName = browserName;
@@ -22,7 +22,7 @@ public final class TestClassContext {
         this.browserSize = browserSize;
         this.device = device;
         this.skin = skin;
-        this.typePage = typePage;
+        this.type = type;
     }
 
     public static void init(
@@ -33,7 +33,7 @@ public final class TestClassContext {
             String browserSize,
             String device,
             String skin,
-            String typePage
+            String type
     ) {
         context.set(new TestClassContext(
                 testContext,
@@ -43,7 +43,7 @@ public final class TestClassContext {
                 browserSize,
                 device,
                 skin,
-                typePage
+                type
         ));
     }
 
@@ -55,32 +55,60 @@ public final class TestClassContext {
         context.remove();
     }
 
-    public static String getHub() {
+    public static String hub() {
         return context.get().hub;
     }
 
-    public static String getBrowserName() {
+    public static String browserName() {
         return context.get().browserName;
     }
 
-    public static String getBrowserVersion() {
+    public static String browserVersion() {
         return context.get().browserVersion;
     }
 
-    public static String getBrowserSize() {
+    public static String browserSize() {
         return context.get().browserSize;
     }
 
-    public static String getDevice() {
+    public static String device() {
         return context.get().device;
     }
 
-    public static String getSkin() {
+    public static String skin() {
         return context.get().skin;
     }
 
-    public static String getTypePage() {
-        return context.get().typePage;
+    public static String type() {
+        return context.get().type;
+    }
+
+    public String getHub() {
+        return hub;
+    }
+
+    public String getBrowserName() {
+        return browserName;
+    }
+
+    public String getBrowserVersion() {
+        return browserVersion;
+    }
+
+    public String getBrowserSize() {
+        return browserSize;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public String getSkin() {
+        return skin;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override
@@ -93,7 +121,7 @@ public final class TestClassContext {
                 ", browserSize='" + browserSize + '\'' +
                 ", device='" + device + '\'' +
                 ", skin='" + skin + '\'' +
-                ", typePage='" + typePage + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

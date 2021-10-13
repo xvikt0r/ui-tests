@@ -8,9 +8,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class FirefoxCapabilitiesFactory implements ICapabilitiesFactory {
     @Override
     public DesiredCapabilities getCapabilities() {
-        String browserName = TestMethodContext.getBrowserName();
-        String browserVersion = TestMethodContext.getBrowserVersion();
-        String methodName = TestMethodContext.getMethodName();
+        String browserName = TestMethodContext.browserName();
+        String browserVersion = TestMethodContext.browserVersion();
+        String methodName = TestMethodContext.methodName();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browserName);
         capabilities.setVersion(browserVersion);

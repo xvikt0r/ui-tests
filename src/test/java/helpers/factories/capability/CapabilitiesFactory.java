@@ -9,9 +9,9 @@ public class CapabilitiesFactory {
     private static final Logger logger = LoggerFactory.getLogger(CapabilitiesFactory.class);
 
     private static ICapabilitiesFactory getFactory() {
-        String device = TestMethodContext.getDevice();
+        String device = TestMethodContext.device();
         if (device != null) return new BrowserStackCapabilitiesFactory();
-        String browser = TestMethodContext.getBrowserName().toLowerCase();
+        String browser = TestMethodContext.browserName().toLowerCase();
         switch (browser) {
             case "chrome":
                 return new ChromeCapabilitiesFactory();

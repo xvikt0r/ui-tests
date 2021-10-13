@@ -5,7 +5,7 @@
         <parameter name="hub" value="local"/>
         <parameter name="browserName" value="chrome"/>
         <parameter name="browserSize" value="1000x768"/>
-        <parameter name="typePage" value="desktop"/>
+        <parameter name="type" value="desktop"/>
         <packages>
             <package name="tests.*"/>
         </packages>
@@ -14,7 +14,7 @@
         <parameter name="hub" value="selenoid"/>
         <parameter name="browserName" value="firefox"/>
         <parameter name="browserSize" value="500x768"/>
-        <parameter name="typePage" value="desktop"/>
+        <parameter name="type" value="desktop"/>
         <packages>
             <package name="tests.*"/>
         </packages>

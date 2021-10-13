@@ -1,4 +1,4 @@
-package helpers.factories.pages;
+package helpers.factories.objects;
 
 import annotations.Page;
 import helpers.contexts.TestClassContext;
@@ -12,21 +12,20 @@ import tests.BaseTest;
 import java.lang.reflect.Field;
 import java.util.Optional;
 
-public class PageFactory {
+public class ObjectFactory {
     private static final Logger logger = LoggerFactory.getLogger(WebDriverFactory.class);
 
-    public static <T extends BaseTest> void initPages(T test) {
-        String typePage = Optional.of(TestClassContext.getTypePage()).orElse(TestMethodContext.getTypePage());
+    public static <T extends BaseTest> void initObjects(T test) {
+        String typeObject = Optional.of(TestClassContext.type()).orElse(TestMethodContext.type());
         Class<? extends BaseTest> testClass = test.getClass();
         try {
             for (Field field : testClass.getDeclaredFields()) {
-
                 if (field.isAnnotationPresent(Page.class)) {
                     Object[] args = field.getAnnotation(Page.class).args();
-                    Class<?> pageClass = field.getType();
-                    Object page = PageProvider.instance(pageClass, typePage, args);
+                    Class<?> objectClass = field.getType();
+                    Object object = ObjectProvider.instance(objectClass, typeObject, args);
                     field.setAccessible(true);
-                    field.set(test, page);
+                    field.set(test, object);
                 }
             }
         } catch (IllegalAccessException e) {
@@ -34,8 +33,8 @@ public class PageFactory {
         }
     }
 
-    public static MainPage initPage(Class<MainPage> pageClass, Object... args) {
-        String typePage = Optional.of(TestClassContext.getTypePage()).orElse(TestMethodContext.getTypePage());
-        return PageProvider.instance(pageClass, typePage, args);
+    public static MainPage init(Class<MainPage> objectClass, Object... args) {
+        String typeObject = Optional.of(TestClassContext.type()).orElse(TestMethodContext.type());
+        return ObjectProvider.instance(objectClass, typeObject, args);
     }
 }
