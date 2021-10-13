@@ -10,7 +10,7 @@
       "url": "http://localhost:4444/wd/hub"
     },
     "browserstack": {
-      "url": "https://{user}:{passwor}@hub-cloud.browserstack.com/wd/hub"
+      "url": "https://bsuser_gYDHlb:Hm5cF72q7sXxDv4uszUz@hub-cloud.browserstack.com/wd/hub"
     }
   },
   "bsdevices": {

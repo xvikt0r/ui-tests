@@ -9,15 +9,16 @@ public class TestMethodContext {
     private Method testMethod;
 
     private TestMethodContext() {
+        testContext = TestClassContext.get();
     }
 
     public static void init(Method method) {
         TestMethodContext currentContext = context.get();
-        currentContext.testContext = TestClassContext.get();
         currentContext.testMethod = method;
     }
 
     public static TestMethodContext get() {
+        TestMethodContext c = context.get();
         return context.get();
     }
 
